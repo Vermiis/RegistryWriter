@@ -6,7 +6,7 @@ class RegGetDef
     public static void Main()
     {
        
-        Console.WriteLine("Co chcesz zrobić?  1- czytanie wartosci wpisu, 2- edycja wpisu, 3- usuniecie wartosci, 4 -usuniecie(jeszcze nie dzialala) ");
+        Console.WriteLine("Co chcesz zrobić?  1- czytanie wartosci wpisu, 2- edycja wpisu, 3- usuniecie wartosci, 4 -usuniecie gałęzi i potomków");
         var opcja = Convert.ToInt32(Console.ReadLine());
 
 
@@ -52,7 +52,7 @@ class RegGetDef
                     string keyName = Console.ReadLine();
                     Console.WriteLine("Podaj wartość");
                     string keyValue = Console.ReadLine();
-                    RegistryWriter.ReadWrite.DeleteSubKey(keyName, keyValue);
+                    RegistryWriter.ReadWrite.DeleteSubKeyTree(keyName, keyValue);
                 }
                 break;
 
