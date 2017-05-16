@@ -19,20 +19,51 @@ namespace RegistryWriter
             Registry.SetValue(key, valname, val);
         }
 
-        public static void DeleteValue( string keyName, string valname)
+        public static void DeleteValue( string SubKeyName, string valname)
         {
-            
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyName, true))
+
+            Console.WriteLine("1-HKEY_Current User, 2- Local machine");
+            var o = Convert.ToInt32(Console.ReadLine());
+            switch (o)
             {
-                if (key == null)
-                {
-                    Console.WriteLine("Wpis nie istnieje");
-                }
-                else
-                {
-                    key.DeleteValue(valname);
-                }
+                case 1:
+            {
+                        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(SubKeyName, true))
+                        {
+                            if (key == null)
+                            {
+                                Console.WriteLine("Wpis nie istnieje");
+                            }
+                            else
+                            {
+                                key.DeleteValue(valname);
+                            }
+                        }
+
+
+                    }
+                    break;
+                case 2:
+                    {
+                        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(SubKeyName, true))
+                        {
+                            if (key == null)
+                            {
+                                Console.WriteLine("Wpis nie istnieje");
+                            }
+                            else
+                            {
+                                key.DeleteValue(valname);
+                            }
+                        }
+
+                    }
+                    break;
+                default:
+                    break;
             }
+
+           
         }
 
         public static void DeleteSubKey(string keyName, string subkey)
