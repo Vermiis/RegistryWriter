@@ -38,6 +38,8 @@ class RegGetDef
 
             case 3:
                 {
+
+                    //to dziala
                     Console.WriteLine("Podaj ścieżkę do wpisu");
                     string keyName = Console.ReadLine();
                     Console.WriteLine("Podaj wartość");
@@ -48,6 +50,8 @@ class RegGetDef
 
             case 4:
                 {
+
+                    //nietestowane
                     Console.WriteLine("Podaj ścieżkę do wpisu");
                     string keyName = Console.ReadLine();
                     Console.WriteLine("Podaj wartość");
@@ -65,13 +69,4 @@ class RegGetDef
         Console.ReadKey();
     }
 }
-/*
-Output:
-Retrieving registry value ...
 
-Object Type = System.String
-
-Value = testData
-
-The default to return
-*/

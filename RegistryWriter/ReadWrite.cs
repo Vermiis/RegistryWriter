@@ -66,18 +66,48 @@ namespace RegistryWriter
            
         }
 
-        public static void DeleteSubKey(string keyName, string subkey)
+        public static void DeleteSubKeyTree(string SubKeyName, string subkey)
         {
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyName, true))
+            Console.WriteLine("1-Current User, 2- Local machine");
+            var o = Convert.ToInt32(Console.ReadLine());
+            switch (o)
             {
-                if (key == null)
-                {
-                    Console.WriteLine("Wpis nie istnieje");
-                }
-                else
-                {
-                    key.DeleteSubKey(subkey);
-                }
+                case 1:
+                    {
+                        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(SubKeyName, true))
+                        {
+                            if (key == null)
+                            {
+                                Console.WriteLine("Wpis nie istnieje");
+                            }
+                            else
+                            {
+                                key.DeleteSubKeyTree(SubKeyName);
+                                
+                            }
+                        }
+
+
+                    }
+                    break;
+                case 2:
+                    {
+                        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(SubKeyName, true))
+                        {
+                            if (key == null)
+                            {
+                                Console.WriteLine("Wpis nie istnieje");
+                            }
+                            else
+                            {
+                                key.DeleteSubKeyTree(SubKeyName);
+                            }
+                        }
+
+                    }
+                    break;
+                default:
+                    break;
             }
         }
 
