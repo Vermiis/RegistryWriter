@@ -19,7 +19,7 @@ namespace RegistryWriter
             Registry.SetValue(key, valname, val);
         }
 
-        public static void DeleteKey( string keyName, string valname)
+        public static void DeleteValue( string keyName, string valname)
         {
             
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyName, true))
@@ -31,6 +31,21 @@ namespace RegistryWriter
                 else
                 {
                     key.DeleteValue(valname);
+                }
+            }
+        }
+
+        public static void DeleteSubKey(string keyName, string subkey)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyName, true))
+            {
+                if (key == null)
+                {
+                    Console.WriteLine("Wpis nie istnieje");
+                }
+                else
+                {
+                    key.DeleteSubKey(subkey);
                 }
             }
         }

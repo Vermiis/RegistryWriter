@@ -42,7 +42,7 @@ class RegGetDef
                     string keyName = Console.ReadLine();
                     Console.WriteLine("Podaj wartość");
                     string keyValue = Console.ReadLine();
-                    RegistryWriter.ReadWrite.DeleteKey(keyName, keyValue);
+                    RegistryWriter.ReadWrite.DeleteValue(keyName, keyValue);
                 }
                 break;
 
