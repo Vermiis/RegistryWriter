@@ -5,12 +5,52 @@ class RegGetDef
 {
     public static void Main()
     {
-        Console.WriteLine("Podaj ścieżkę do wpisu");
-        string keyName = Console.ReadLine();
-        Console.WriteLine("Podaj wartość");
-        string keyValue = Console.ReadLine();
+       
+        Console.WriteLine("Co chcesz zrobić?  1- czytanie wartosci wpisu, 2- edycja wpisu, 3- usuniecie wartosci, 4 -usuniecie ");
+        var opcja = Convert.ToInt32(Console.ReadLine());
 
-        RegistryWriter.ReadWrite.ShowValue(keyName, keyValue);
+
+        
+        switch (opcja)
+        {
+            case 1:
+                {
+                    Console.WriteLine("Podaj ścieżkę do wpisu");
+                    string keyName = Console.ReadLine();
+                    Console.WriteLine("Podaj wartość");
+                    string keyValue = Console.ReadLine();
+
+                    RegistryWriter.ReadWrite.ShowValue(keyName, keyValue);
+                }
+                
+                break;
+            case 2:
+                {
+                    Console.WriteLine("Podaj ścieżkę do wpisu");
+                    string keyName = Console.ReadLine();
+                    Console.WriteLine("Podaj wartość");
+                    string keyValue = Console.ReadLine();
+                    Console.WriteLine("Podaj nowa wartosc");
+                    string newVal = Console.ReadLine();
+                    RegistryWriter.ReadWrite.ChangeValue(keyName, keyValue, newVal);
+                }
+                break;
+
+            case 3:
+                {
+                    Console.WriteLine("Podaj ścieżkę do wpisu");
+                    string keyName = Console.ReadLine();
+                    Console.WriteLine("Podaj wartość");
+                    string keyValue = Console.ReadLine();
+                    RegistryWriter.ReadWrite.DeleteKey(keyName, keyValue);
+                }
+                break;
+
+
+
+            default:
+                break;
+        }
 
 
         Console.ReadKey();
