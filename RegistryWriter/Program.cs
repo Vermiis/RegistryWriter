@@ -40,7 +40,7 @@ class RegGetDef
                 {
 
                     //to dziala
-                    Console.WriteLine("Podaj ścieżkę do wpisu");
+                    Console.WriteLine("Podaj SUBścieżkę do wpisu");
                     string keyName = Console.ReadLine();
                     Console.WriteLine("Podaj wartość");
                     string keyValue = Console.ReadLine();
@@ -52,7 +52,7 @@ class RegGetDef
                 {
 
                     //nietestowane
-                    Console.WriteLine("Podaj ścieżkę do wpisu");
+                    Console.WriteLine("Podaj SUBścieżkę do wpisu");
                     string keyName = Console.ReadLine();
                     Console.WriteLine("Podaj wartość");
                     string keyValue = Console.ReadLine();

@@ -32,7 +32,7 @@ namespace RegistryWriter
                         {
                             if (key == null)
                             {
-                                Console.WriteLine("Wpis nie istnieje");
+                                Console.WriteLine("Wpis nie istnieje, albo podales zla sciezke (ma byc bez HKEY...)");
                             }
                             else
                             {
@@ -49,7 +49,7 @@ namespace RegistryWriter
                         {
                             if (key == null)
                             {
-                                Console.WriteLine("Wpis nie istnieje");
+                                Console.WriteLine("Wpis nie istnieje, albo podales zla sciezke (ma byc bez HKEY...)");
                             }
                             else
                             {
@@ -82,7 +82,7 @@ namespace RegistryWriter
                             }
                             else
                             {
-                                key.DeleteSubKeyTree(SubKeyName);
+                                key.DeleteSubKeyTree(subkey);
                                 
                             }
                         }
